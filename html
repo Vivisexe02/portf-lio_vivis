@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar fixa */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.6);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 30px;
+      color: #fff;
+      font-weight: 700;
+      opacity: 0;
+      transition: opacity 0.5s;
+      z-index: 100;
+    }
+
+    nav.show {
+      opacity: 1;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Seção Home */
+    .home {
+      height: 100vh;
+      width: 100%;
+      background: url('https://res.cloudinary.com/duwqcl2nt/image/upload/v1757866003/Agrupar_5_1x_1_j4a6wy.png') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+
+    .home h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+    }
+
+    /* Seta animada */
+    .scroll-down {
+      position: absolute;
+      bottom: 30px;
+      font-size: 2rem;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-15px); }
+      60% { transform: translateY(-7px); }
+    }
+
+    /* Seções adicionais de teste */
+    section {
+      height: 100vh;
+    }
+
+    #sobre { background: #f4f4f4; }
+    #galeria { background: #ddd; }
+    #contato { background: #bbb; }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="#sobre">Sobre mim</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <section class="home">
+    <h1>Seu Texto Principal Aqui</h1>
+    <div class="scroll-down" onclick="scrollToNext()">&#8595;</div>
+  </section>
+
+  <section id="sobre"></section>
+  <section id="galeria"></section>
+  <section id="contato"></section>
+
+  <script>
+    // Mostrar navbar ao rolar
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 50){
+        navbar.classList.add('show');
+      } else {
+        navbar.classList.remove('show');
+      }
+    });
+
+    // Scroll suave ao clicar na seta
+    function scrollToNext() {
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+
+</body>
+</html>
